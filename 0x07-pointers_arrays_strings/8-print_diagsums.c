@@ -1,23 +1,23 @@
+#include "main.h"
 #include <stdio.h>
+
 /**
- * print_diagsums - multiplies two digits
- * @a: 1st digit in the multiplication
- * @size: 2nd digit to be multiplied
- * Description: multiplies two digits
- * Return: the result of the multiplication
+ *   * print_diagsums - Print the sum of two diagonals of square matrix
+ *     *
+ *       * @a: the matrix
+ *         * @size: the size
+ *           *
+ *             * Return: Nothing.
  */
 void print_diagsums(int *a, int size)
 {
-	int i, j, sum;
+	int b, sum1 = 0, sum2 = 0;
 
-	/*print first diagonal*/
-	for (i = 0; i < size; i++)
-		sum += a[i][i];
-	printf("%d, ", sum);
+	for (b = 0; b < size; b++)
+	{
+		sum1 += a[(size + 1) * b];
+		sum2 += a[(size - 1) * (b + 1)];
+	}
 
-	/*print the second diagonal*/
-	sum = 0;
-	for (i = 0, j = size - 1; i < size && j >= 0; i++,j--)
-		sum += a[i][j];
-	printf("%d", sum);
+	printf("%d, %d\n", sum1, sum2);
 }
